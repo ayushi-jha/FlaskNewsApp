@@ -1,0 +1,258 @@
+ .slideshow a, .slideshow a:hover, .slideshow a:focus, .slideshow a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+ #bottomdiv a, #bottomdiv a:hover, #bottomdiv a:focus, #bottomdiv a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+
+ hr {
+     border-top: 1px dotted;
+ }
+
+#leftdiv {
+    float: left;
+    border: 1px solid #d0d0d0;
+     border-radius: 5px;
+}
+#rightdiv {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 900px;
+    padding: 0;
+}
+#topdiv {
+    width: 1200px;
+    margin: 10px auto;
+}
+#word_cloud {
+    background-color: #F2F2F2;
+}
+
+#bottomdiv h1 {
+    text-align: center;
+}
+
+#bottomdiv {
+    width: 900px;
+    margin: 0 auto;
+}
+.main_button {
+    background-color: #F2F2F2;
+  color: #000000;
+  padding: 15px 32px;
+  display: block;
+  font-size: 16px;
+    font-family: Georgia;
+    border: none;
+    width: 100%;
+}
+.main_button:hover {
+    background: #67AC5C;
+    color: #FFFFFF;
+}
+ .active {
+    background: #555555;
+    color: #FFFFFF;
+}
+ #slideshow {
+     /*border: 1px solid #d0d0d0;*/
+     margin-right: 20px;
+     height: 300px;
+     }
+
+ #slides {
+  width: 100%;
+     height: 100%;
+     padding: 0;
+     margin: 0;
+ }
+.slide {
+width: 100%;
+     height: 100%;
+     color: #FFFFFF;
+}
+figure {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+}
+figcaption {
+   background: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+figure img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.slide p {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+ #search_form {
+     display: none;
+     padding: 10px;
+ }
+
+ #search_form label {
+     padding: 5px;
+ }
+ #search_form input, #search_form select {
+     margin: 10px;
+ }
+ .card {
+    display: table-cell;
+  transition: 0.3s;
+  width: 20%;
+     /*height: 400px;*/
+  border-radius: 5px;
+     border: 1px solid #d0d0d0;
+     background: #F2F2F2;
+}
+
+ .cardlist {
+     padding: 0;
+     margin: 0;
+ }
+
+.card img {
+    width: 100%;
+}
+
+.cardbox {
+    width: 100%;
+    height: 100%;
+    display: table;
+    border-collapse:separate;
+    border-spacing:10px;
+}
+
+#innerstretch {
+    height: 70%;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.card3 {
+  width: 100%;
+  border-radius: 5px;
+     border: 1px solid #d0d0d0;
+     background: #F2F2F2;
+  transition: 0.3s;
+    margin-bottom: 10px;
+    position: relative;
+}
+.close {
+    content: "x";
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.card2 {
+    display: flex;
+  width: 100%;
+}
+
+.card3:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card2-img {
+    flex: 1;
+    padding: 25px 0 25px 25px;
+}
+.card2-img img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.cardbox2 {
+    width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+.cardbox2 span {
+    padding-top: 40px;
+    text-align: center;
+}
+.cardbox2 ul {
+    padding: 0;
+}
+
+.innerstretch2 {
+    flex: 4;
+    width: 70%;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.innerstretch2 p {
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.extra-res {
+    display: none;
+}
+
+#search_form {
+    width: 800px;
+    margin: 0 auto;
+    background: #F3F3F3;
+    text-align: center;
+}
+
+.collapse {
+    display: none;
+}
+
+#show-more, #show-less {
+    background-color: #F2F2F2;
+    color: #000000;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    width: 120px;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+#search_submit, #clear {
+    background-color: #F0F0F0;
+    color: #000000;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 2px;
+}
+
+#search_submit:hover, #clear:hover, #show-more:hover, #show-less:hover {
+    background: #67AC5C;
+    color: #FFFFFF;
+}
+
+#no-result {
+    text-align: center;
+    padding-top: 40px;
+    width: 100%;
+    font-size: 16px;
+}
+
