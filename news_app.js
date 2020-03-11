@@ -187,7 +187,7 @@ function showSearchResults() {
 
                if (search_list.length <= 0) {
                    console.log("Search List length: ", search_list.length);
-                   html_search += "<div id='no-result' style='width: 800px; margin: 0 auto; padding-top: 40px;'>No Results</div>";
+                   html_search += "<div id='no-result' style='width: 800px; margin: 0 auto; padding-top: 40px;'>No results</div>";
                }
                else {
                    console.log("It was in here");
@@ -202,11 +202,11 @@ function showSearchResults() {
                         }
                        if (s_i < 5)
                        {
-                           html_search += "<div class='card3'><div class='close'>&#10006;</div><li class='card2'><div class='card2-img'><img src=" + "'" + search_list[s_i].urlToImage + "'" + "></div><div class='innerstretch2'><h3>" + search_list[s_i].title + "</h3><p class='innerstretch2-p'>" + trimmedString + "</p><div class='collapse'><b>Author: </b>" + search_list[s_i].author + "<br><b>Source: </b>" + search_list[s_i].source.name + "<br><b>Date: </b>" + search_list[s_i].publishedAt + "<br>" + search_list[s_i].description + "<br><a href='" + search_list[s_i].url + "' target='_blank'>See Original Post</a> </div></div></li></div>";
+                           html_search += "<div class='card3'><div class='close'>&#10006;</div><li class='card2'><div class='card2-img'><img src=" + "'" + search_list[s_i].urlToImage + "'" + "></div><div class='innerstretch2'><h3 style='margin-bottom: 0px;'>" + search_list[s_i].title + "</h3><p class='innerstretch2-p'>" + trimmedString + "</p><div class='collapse'><span style='line-height: 1.6'><b>Author: </b>" + search_list[s_i].author + "<br><b>Source: </b>" + search_list[s_i].source.name + "<br><b>Date: </b>" + search_list[s_i].publishedAt + "</span><br>" + search_list[s_i].description + "<br><a href='" + search_list[s_i].url + "' target='_blank'>See Original Post</a> </div></div></li></div>";
                        }
                        else if (s_i < 15)
                            {
-                               html_search += "<div class='card3 extra-res'><div class='close'>&#10006;</div><li class='card2'><div class='card2-img'><img src=" + "'" + search_list[s_i].urlToImage + "'" + "></div><div class='innerstretch2'><h3>" + search_list[s_i].title + "</h3><p class='innerstretch2-p'>" + trimmedString + "</p><div class='collapse'><b>Author: </b>" + search_list[s_i].author + "<br><b>Source: </b>" + search_list[s_i].source.name + "<br><b>Date: </b>" + search_list[s_i].publishedAt + "<br>" + search_list[s_i].description + "<br><a href='" + search_list[s_i].url + "' target='_blank'>See Original Post</a> </div></div></li></div>";
+                               html_search += "<div class='card3 extra-res'><div class='close'>&#10006;</div><li class='card2'><div class='card2-img'><img src=" + "'" + search_list[s_i].urlToImage + "'" + "></div><div class='innerstretch2'><h3>" + search_list[s_i].title + "</h3><p class='innerstretch2-p'>" + trimmedString + "</p><div class='collapse'><span style='line-height: 1.6'><b>Author: </b>" + search_list[s_i].author + "<br><b>Source: </b>" + search_list[s_i].source.name + "<br><b>Date: </b>" + search_list[s_i].publishedAt + "</span><br>" + search_list[s_i].description + "<br><a href='" + search_list[s_i].url + "' target='_blank'>See Original Post</a> </div></div></li></div>";
 
                            }
                        else
@@ -227,6 +227,7 @@ var collapse_items = document.getElementsByClassName("card2");
 for (const this_card of collapse_items) {
   this_card.addEventListener('click', function(e) {
       this_card.parentNode.firstChild.style.visibility = 'visible';
+      this_card.parentNode.style.cursor = 'auto';
     for (var out_i = 0; out_i < this_card.childNodes.length; out_i++) {
         if (this_card.childNodes[out_i].className === "innerstretch2")
         {
@@ -250,6 +251,7 @@ var collapse_items_cross = document.getElementsByClassName("close");
 for (const this_card2 of collapse_items_cross) {
   this_card2.addEventListener('click', function(e) {
       var parent = this_card2.parentNode;
+      parent.style.cursor = 'pointer';
     for (var out_ix = 0; out_ix < parent.childNodes.length; out_ix++) {
         if (parent.childNodes[out_ix].className === "card2")
         {
@@ -303,6 +305,10 @@ function clearResults() {
                sourceElement2[sourceElement2.length] = new Option("all", "all");
                for (var item2 in source_list_dict) {
                    sourceElement2[sourceElement2.length] = new Option(item2, item2);
+                   if (sourceElement2.length >= 11)
+                   {
+                       break;
+                   }
                }
         document.getElementById("search_result").style.display = 'none';
         getDate();
@@ -337,6 +343,10 @@ function getsources(){
                for (var item = 0; item < myObj3.source_list.length; item ++) {
                    sourceElement[sourceElement.length] = new Option(myObj3.source_list[item].source, myObj3.source_list[item].source);
                    source_list_dict[myObj3.source_list[item].source] = myObj3.source_list[item].id;
+                   if (sourceElement.length >= 11)
+                   {
+                       break;
+                   }
                }
            }
            else if (xmlhttp3.status === 400) {

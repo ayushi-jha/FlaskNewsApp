@@ -46,10 +46,10 @@ for article in headlines:
                 if 'id' not in article['source'] and 'name' not in article['source']:
                     flag = 1
                     continue
-                elif article['source']['id'] is None and article['source']['id'] is None:
+                elif article['source']['id'] is None and article['source']['name'] is None:
                     flag = 1
                     continue
-            if article[item] is None:
+            if article[item] is None or article[item] == "null":
                 flag = 1
                 continue
     if flag == 0:
@@ -72,10 +72,10 @@ for article in cnn_articles:
                 if 'id' not in article['source'] and 'name' not in article['source']:
                     flag = 1
                     continue
-                elif article['source']['id'] is None and article['source']['id'] is None:
+                elif article['source']['id'] is None and article['source']['name'] is None:
                     flag = 1
                     continue
-            if article[item] is None:
+            if article[item] is None or article[item] == "null":
                 flag = 1
                 continue
     if flag == 0:
@@ -98,10 +98,10 @@ for article in fox_articles:
                 if 'id' not in article['source'] and 'name' not in article['source']:
                     flag = 1
                     continue
-                elif article['source']['id'] is None and article['source']['id'] is None:
+                elif article['source']['id'] is None and article['source']['name'] is None:
                     flag = 1
                     continue
-            if article[item] is None:
+            if article[item] is None or article[item] == "null":
                 flag = 1
                 continue
     if flag == 0:
@@ -133,7 +133,11 @@ def show_search():
     keyword = request.args.get("keyword")
     sources = request.args.get("sources")
     try:
-        all_search_results = newsapi.get_everything(q=keyword, sources=sources, from_param=from_val, to=to_val, language="en", page_size=20, sort_by="publishedAt")
+        if sources == "" or sources == "all":
+            all_search_results = newsapi.get_everything(q=keyword, from_param=from_val, to=to_val, language="en", page_size=30, sort_by="publishedAt")
+        else:
+            all_search_results = newsapi.get_everything(q=keyword, sources=sources, from_param=from_val, to=to_val, language="en", page_size=30, sort_by="publishedAt")
+
     except NewsAPIException as e:
         print ("Exception: ", e.get_message())
         return jsonify({"error": e.get_message()})
@@ -150,13 +154,10 @@ def show_search():
                 continue
             else:
                 if item == 'source':
-                    if 'id' not in article['source'] and 'name' not in article['source']:
+                    if 'name' not in article['source']:
                         flag = 1
                         continue
-                    elif article['source']['id'] is None and article['source']['id'] is None:
-                        flag = 1
-                        continue
-                if article[item] is None:
+                if article[item] is None or article[item] == "null":
                     flag = 1
                     continue
         if flag == 0:
