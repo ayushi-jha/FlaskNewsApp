@@ -3,7 +3,7 @@ from newsapi import NewsApiClient
 from newsapi.newsapi_exception import NewsAPIException
 application = Flask(__name__, static_url_path="/static")
 
-newsapi = NewsApiClient(api_key='483a7fc25b164d318f0ad3606218479b')
+newsapi = NewsApiClient(api_key='XXXXX')
 top_headlines = newsapi.get_top_headlines(page_size=30, language='en',country='us')
 all_cnn_articles = newsapi.get_everything(sources='cnn', language='en')
 all_fox_articles = newsapi.get_everything(sources='fox-news', language='en')
